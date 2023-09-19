@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handjet&family=Roboto+Mono:ital,wght@1,100&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <title>🐕Shib8bit🐕</title>
+  </head>
+  <body>
+    <main>
+      <!-- #game-intro is initially shown on the game start screen -->
+      <div id="game-intro" >
+        <div id="box">
+        <h1>📣INSTRUCTIONS📣</h1>
+          <p>A shiba-inu🐕 has been lost in the city🏙️<br />
+              Help it overcome obstacles and go back home safely🏠<br />
+              Game over if it touches the obstacles, so watch out 🤭
+              <br />
+              <br />
+              Press arrow up ⬆️ to jump! 
+              <br />
+              <br />
+              <button id="start-button">Start Game</button>
+          </p>
+        </div>
+      </div>
+      <div id="game-container">
+        <div>
+          <h2>Stats</h2>
+          <p>Score: <span id="score">0</span></p>
+          <p>Lives: <span id="lives">3</span></p>
+        </div>
+        <!-- #game-screen is initially hidden using CSS style display: none -->
+        <div id="game-screen">
+         <!-- AUDIO <embed loop="true" src="Background_music.mp3" hidden="true"></embed>-->
+        </div>
+      </div>
+
+      <!-- #game-end is initially hidden using CSS style display: none -->
+      <div id="game-end">     
+        <h1>GAME OVER</h1>        
+        <img src="../images/gameover_shiba.gif" alt="Game Over" class="gameOver" />
+        <br />
+        <p>The shiba didn't make it....Wanna try again?</p>
+        <br />
+        <button id="restart-button">Restart🎮</button>
+      </div>
+    </main>
+    <audio id="dogBarking" src="dog_bark.mp3"></audio>
+    <script type="text/javascript" src="js/obstacle.js"></script>
+    <script type="text/javascript" src="js/player.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
+</html>
