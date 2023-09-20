@@ -89,9 +89,9 @@ body {
     position: relative;
     height: 300px;
     width: 800px;
-    background-image: url(../images/background_shiba.jpeg);
+    background-image: url(Images/MergedImages_Background.png);
     background-size: cover;
-    animation: slideright 3s linear infinite;
+    animation: slideright 30s linear infinite;
   }
   
   @keyframes slideright {

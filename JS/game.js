@@ -12,13 +12,15 @@ class Game {
       this.score = 0
       this.lives = 3
       this.gameOver = false
-      this.audioDog
-      this.soundEffectButton
+      this.audioDog = 
+      this.soundEffectButton = 
+      this.gameMusic = new Audio('bgMusic')
     }
     start() {
       this.startScreen.style.display = 'none'
       this.gameEndScreen.style.display = 'none'
       this.gameScreen.style.display = 'block'
+      this.gameMusic.play()
   
       this.gameScreen.style.height = `${this.height}px`
       this.gameScreen.style.width = `${this.width}px`
@@ -63,6 +65,9 @@ class Game {
       if (this.gameOver) {
         this.gameScreen.style.display = 'none'
         this.gameEndScreen.style.display = 'block'
+        this.gameMusic.pause()
+
+
       } else {
         this.animateId = requestAnimationFrame(() => this.gameLoop())
       }
@@ -103,63 +108,8 @@ class Game {
       })
       this.treats = nextTreats
     }
-}
 
-
-
-
-
-    /* 
-    update() {
-        this.player.move()
-        //console.log(this.platforms)
-        if (this.animateId % 200 === 0) {
-          this.platforms.push(
-            new Platform(
-              this.gameScreen,
-              Math.random() * (this.gameScreen.clientWidth - 40 - 100) + 50,
-              -200,
-              60,
-              100
-            )
-          )
-        }
-        this.platforms.forEach(obstaclePlatform => {
-          obstaclePlatform.move()
-          if (this.player.didCollide(obstaclePlatform)) {
-            this.lives -= 1
-            obstaclePlatform.element.remove()
-          } else if (obstaclePlatform.top > this.gameScreen.clientHeight) {
-            this.score += 1
-            obstaclePlatform.element.remove()
-          }
-          })
-
-          this.player.move()
-   // console.log(this.apples)
-    if (this.animateId % 200 === 0) {
-      this.apples.push(
-        new Apple(
-          this.gameScreen,
-          Math.random() * (this.gameScreen.clientWidth - 40 - 100) + 50,
-          -200,
-          100,
-          150
-        )
-      )
-    }
-    this.apples.forEach(obstacleApple => {
-      obstacleApple.move()
-      if (this.player.didCollide(obstacleApple)) {
-        this.timer += 5
-        this.timeElement.innerText = this.timer;
-        obstacleApple.element.remove()
-      }
-})
-}}*/
-
-
-    /*//audio - when start button clicked
+    //audio - when start button clicked
     audio (){
     this.audioDog = document.getElementById('dogBarking');
     this.soundEffectButton = document.getElementById('start-button');
@@ -167,4 +117,5 @@ class Game {
     this.audio.play(); 
     });  
     }
-    //when collidision happens ..?*/
+    //when collidision happens ..?
+}
