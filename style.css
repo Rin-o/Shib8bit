@@ -8,6 +8,16 @@ body {
     justify-content: center;
   }
   
+  h1 {
+    color: #604abd;
+    font-size: 100px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+
+  h2 {
+    color: #444444;
+  }
+
   #game-intro {
     padding: 20px 0px;
     text-align: center;
@@ -43,6 +53,7 @@ body {
   
   #start-button {
     font-size: 18px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     font-family: 'VT323', monospace;  
     background-color: #b096f6;
     border-radius: 8px;
@@ -105,11 +116,14 @@ body {
   
   
     /*for the game-end page*/ 
+
+
   
     #restart-button {
       font-size: 18px;
       font-family: 'VT323', monospace;  
       background-color: #b096f6;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
       border-radius: 8px;
       border-color: #604abd 3px;
       box-sizing: border-box;
@@ -137,10 +151,10 @@ body {
         color: white;
       }
   
-  #game-end {
+  #game-end, #game-clear {
     display: none;
-    font-size: 18px;
-    font-family: 'VT323', monospace;  
-    color: #444444;
+      font-size: 18px;
+      font-family: 'VT323', monospace;  
+      color: #444444;
   }
   

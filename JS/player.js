@@ -83,23 +83,5 @@ class Player {
         return false
       }
     }
-
-//added for treats
-    /*didCatch(treat) {
-        const playerRect = this.element.getBoundingClientRect()
-        const treatRect = treat.element.getBoundingClientRect()
-    
-        if (
-          playerRect.left < treatRect.right &&
-          playerRect.right > treatRect.left &&
-          playerRect.top < treatRect.bottom &&
-          playerRect.bottom > treatRect.top
-        ) {
-          return true
-        } else {
-          return false
-        }
-      }*/
-
     
 }

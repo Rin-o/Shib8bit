@@ -3,15 +3,17 @@ class Game {
       this.startScreen = document.getElementById('game-intro')
       this.gameScreen = document.getElementById('game-screen')
       this.gameEndScreen = document.getElementById('game-end')
+      //this.gameClearScreen = document.getElementById('game-clear')//<--to check game clear
       this.height = 300
       this.width = 800
       this.player = new Player(this.gameScreen, 1, 260, 94, 102)
       this.obstacles = []
-      this.treats = [] ////added for treats
+      this.treats = []
       this.animateId = 0
       this.score = 0
       this.lives = 3
       this.gameOver = false
+      //this.gameClear = false //<--to check game clear
       this.audioDog = 
       this.soundEffectButton = 
       this.gameMusic = new Audio('bgMusic')
@@ -19,6 +21,7 @@ class Game {
     start() {
       this.startScreen.style.display = 'none'
       this.gameEndScreen.style.display = 'none'
+      //this.gameClearScreen.style.display = 'none' //<--to check game clear
       this.gameScreen.style.display = 'block'
       this.gameMusic.play()
   
@@ -55,6 +58,8 @@ class Game {
           )
         )
       }
+
+
       document.getElementById('score').innerText = this.score
       document.getElementById('lives').innerText = this.lives
   
@@ -65,13 +70,29 @@ class Game {
       if (this.gameOver) {
         this.gameScreen.style.display = 'none'
         this.gameEndScreen.style.display = 'block'
+        //this.gameClearScreen.style.display = 'none'//<--to check game clear
         this.gameMusic.pause()
-
 
       } else {
         this.animateId = requestAnimationFrame(() => this.gameLoop())
       }
+
+      /*if (this.score >= 5) {
+        this.gameClear = true
+      }
+  
+      if (this.gameClear) {
+        this.gameScreen.style.display = 'none'
+        this.gameEndScreen.style.display = 'none'
+        this.gameClearScreen.style.display = 'block'
+        this.gameMusic.pause()
+
+      } else {
+        this.animateId = requestAnimationFrame(() => this.gameLoop())
+      }*/
+
     }
+
     update() {
       this.player.move()
       //console.log(this.obstacles)
