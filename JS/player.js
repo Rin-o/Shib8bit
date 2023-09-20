@@ -1,5 +1,5 @@
 class Player {
-    constructor(gameScreen, left, top, height, width, added , position, groundY, jumpPower, jumpHeight, gravity) {//added , position, groundY, jumpPower, jumpHeight, gravity
+    constructor(gameScreen, left, top, height, width, yVelocity, jumping, jumpHeight, gravity) {
       this.gameScreen = gameScreen
       this.left = left
       this.top = top
@@ -7,12 +7,12 @@ class Player {
       this.width = width
       this.directionX = 0
       this.directionY = 0
+      this.yVelocity = 0;
+      this.jumping = false;
+      this.jumpHeight = -3;
+      this.gravity = 0.5;      
+      
       this.element = document.createElement('img')
-      /*this.groundY = groundY; //added
-      this.position = position;//added
-      this.jumpPower = jumpPower; //added
-      this.jumpHeight = jumpHeight;//added
-      this.gravity = gravity;//added*/
   
       this.element.src = 'images/shiba2.png'
   
@@ -25,6 +25,18 @@ class Player {
       this.gameScreen.appendChild(this.element)
     }
   
+    jump() {
+        if (!this.jumping) {
+          this.directionY = this.jumpHeight;
+          this.jumping = true;
+        }
+      }
+  
+    applyGravity() {
+        this.yVelocity += this.gravity;
+        this.top += this.yVelocity;
+      }
+
     move() {
       this.updatePosition()
       this.element.style.left = `${this.left}px`
@@ -47,26 +59,14 @@ class Player {
       } else {
         this.top += this.directionY
       }
+
+      if(this.jumping) {
+        this.top -= 3
+      } else if (this.jumping === false && this.top <= 300) {
+        this.top += 3
+      }
     }
 
-     /* if (this.isJumping) //added
-            this.position.add(0, -this.jumpPower);//added
-      if (this.position.y <= this.groundY  - this.jumpHeight)//added
-            this.isJumping = false;//added
-      if (!this.isJumping && !this.isGrounded())//added
-          this.position.add(0, this.gravity);//added
-    if (this.position.y >= this.groundY - this.height) {//added
-      this.position.y = this.groundY - this.height;//added
-  }
-
-jump() {
-  if (this.isGrounded()) //added
-      this.isJumping = true;//added*/
-//}
-
-//isGrounded() {//added
-  //return this.position.y == this.groundY - this.height;//added
-//}
   
     didCollide(obstacle) {
       const playerRect = this.element.getBoundingClientRect()

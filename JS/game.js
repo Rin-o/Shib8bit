@@ -25,12 +25,12 @@ class Game {
       this.gameScreen.style.width = `${this.width}px`
   
       this.gameLoop()
-    }
+    } 
   
     gameLoop() {
       this.update()
   
-      if (this.animateId % 500 === 0) {
+      if (this.animateId % 200 === 0) {
         this.obstacles.push(
           new Obstacle(
             this.gameScreen,
@@ -90,6 +90,56 @@ class Game {
       })
       this.obstacles = nextObstacles
     }
+
+    /* update() {
+        this.player.move()
+        //console.log(this.platforms)
+        if (this.animateId % 200 === 0) {
+          this.platforms.push(
+            new Platform(
+              this.gameScreen,
+              Math.random() * (this.gameScreen.clientWidth - 40 - 100) + 50,
+              -200,
+              60,
+              100
+            )
+          )
+        }
+        this.platforms.forEach(obstaclePlatform => {
+          obstaclePlatform.move()
+          if (this.player.didCollide(obstaclePlatform)) {
+            this.lives -= 1
+            obstaclePlatform.element.remove()
+          } else if (obstaclePlatform.top > this.gameScreen.clientHeight) {
+            this.score += 1
+            obstaclePlatform.element.remove()
+          }
+          })
+
+          this.player.move()
+   // console.log(this.apples)
+    if (this.animateId % 200 === 0) {
+      this.apples.push(
+        new Apple(
+          this.gameScreen,
+          Math.random() * (this.gameScreen.clientWidth - 40 - 100) + 50,
+          -200,
+          100,
+          150
+        )
+      )
+    }
+    this.apples.forEach(obstacleApple => {
+      obstacleApple.move()
+      if (this.player.didCollide(obstacleApple)) {
+        this.timer += 5
+        this.timeElement.innerText = this.timer;
+        obstacleApple.element.remove()
+      }
+})
+}}*/
+
+
      /*added for treats
       const nextTreats = []
       this.treats.forEach(treat => {
@@ -108,23 +158,14 @@ class Game {
     }*/
 
 
-    //audio
-    //when start button clicked
+    //audio - when start button clicked
     audio (){
     this.audioDog = document.getElementById('dogBarking');
-    //const soundEffect2 = document.getElementById('soundEffect2');
-  
-    // Get a reference to the button
-   this.soundEffectButton = document.getElementById('start-button');
-  
-    // Add a click event listener to the button
+    this.soundEffectButton = document.getElementById('start-button');
     this.soundEffectButton.addEventListener('click', () => {
-      // Play the desired sound effect
-      this.audio.play(); // You can change this to play soundEffect2 for a different sound
+    this.audio.play(); 
     });  
     //when collidision happens ..?
-
-
   }
 
 }
