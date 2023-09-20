@@ -71,7 +71,7 @@ class Player {
     didCollide(obstacle) {
       const playerRect = this.element.getBoundingClientRect()
       const obstacleRect = obstacle.element.getBoundingClientRect()
-  
+
       if (
         playerRect.left < obstacleRect.right &&
         playerRect.right > obstacleRect.left &&
@@ -83,4 +83,23 @@ class Player {
         return false
       }
     }
+
+//added for treats
+    /*didCatch(treat) {
+        const playerRect = this.element.getBoundingClientRect()
+        const treatRect = treat.element.getBoundingClientRect()
+    
+        if (
+          playerRect.left < treatRect.right &&
+          playerRect.right > treatRect.left &&
+          playerRect.top < treatRect.bottom &&
+          playerRect.bottom > treatRect.top
+        ) {
+          return true
+        } else {
+          return false
+        }
+      }*/
+
+    
 }

@@ -7,7 +7,7 @@ class Game {
       this.width = 800
       this.player = new Player(this.gameScreen, 1, 260, 94, 102)
       this.obstacles = []
-      //this.treats = [] //added
+      this.treats = [] ////added for treats
       this.animateId = 0
       this.score = 0
       this.lives = 3
@@ -15,7 +15,6 @@ class Game {
       this.audioDog
       this.soundEffectButton
     }
-  
     start() {
       this.startScreen.style.display = 'none'
       this.gameEndScreen.style.display = 'none'
@@ -26,37 +25,34 @@ class Game {
   
       this.gameLoop()
     } 
-  
     gameLoop() {
       this.update()
   
-      if (this.animateId % 200 === 0) {
+      if (this.animateId % 100 === 0) {
         this.obstacles.push(
           new Obstacle(
             this.gameScreen,
             //Math.random() * (this.gameScreen.clientWidth - 40 - 100) + 50,
             750,
-            240,
-            80,
-            40
+            250,
+            70,
+            50
           )
         )
       }
-  
-     /* if (this.animateId % 500 === 0) {
+      //added for treats
+     if (this.animateId % 250 === 0) {
         this.treats.push(
-          new Treats(
+          new Treat(
             this.gameScreen,
             //Math.random() * (this.gameScreen.clientWidth - 40 - 100) + 50,
             750,
-            240,
-            80,
-            40
+            260,
+            46,
+            48
           )
         )
-      }*/
-  
-
+      }
       document.getElementById('score').innerText = this.score
       document.getElementById('lives').innerText = this.lives
   
@@ -71,7 +67,6 @@ class Game {
         this.animateId = requestAnimationFrame(() => this.gameLoop())
       }
     }
-  
     update() {
       this.player.move()
       //console.log(this.obstacles)
@@ -89,9 +84,33 @@ class Game {
         }
       })
       this.obstacles = nextObstacles
-    }
 
-    /* update() {
+         //added for treats
+    
+    this.player.move()
+     const nextTreats = []
+      this.treats.forEach(treat => {
+        treat.move()
+        if (this.player.didCollide(treat)) {
+          this.score += 1
+          treat.element.remove()
+        } else if (treat.top > this.gameScreen.clientHeight) {
+          this.score += 0
+          treat.element.remove()
+        } else {
+          nextTreats.push(treat)
+        }
+      })
+      this.treats = nextTreats
+    }
+}
+
+
+
+
+
+    /* 
+    update() {
         this.player.move()
         //console.log(this.platforms)
         if (this.animateId % 200 === 0) {
@@ -140,32 +159,12 @@ class Game {
 }}*/
 
 
-     /*added for treats
-      const nextTreats = []
-      this.treats.forEach(treat => {
-        treat.move()
-        if (this.player.didCollide(treat)) {
-          this.lives += 1
-          treat.element.remove() //should this be kept?
-        } else if (treat.top > this.gameScreen.clientHeight) {
-          this.score += 0
-          treat.element.remove()
-        } else {
-          nexTreats.push(treat)
-        }
-      })
-      this.treats = nextTreats
-    }*/
-
-
-    //audio - when start button clicked
+    /*//audio - when start button clicked
     audio (){
     this.audioDog = document.getElementById('dogBarking');
     this.soundEffectButton = document.getElementById('start-button');
     this.soundEffectButton.addEventListener('click', () => {
     this.audio.play(); 
     });  
-    //when collidision happens ..?
-  }
-
-}
+    }
+    //when collidision happens ..?*/
