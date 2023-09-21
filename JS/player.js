@@ -14,7 +14,7 @@ class Player {
       
       this.element = document.createElement('img')
   
-      this.element.src = 'Images/shiba2.png'
+      this.element.src = '../Images/shiba2.png'
   
       this.element.style.position = 'absolute'
       this.element.style.left = `${this.left}px`
