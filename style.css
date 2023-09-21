@@ -151,7 +151,7 @@ body {
         color: white;
       }
   
-  #game-end, #game-clear {
+  #game-end, #game-win {
     display: none;
       font-size: 18px;
       font-family: 'VT323', monospace;  

@@ -9,11 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Handjet&family=Roboto+Mono:ital,wght@1,100&family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <audio id="bgMusic" preload="auto" loop>
-        <source src="Background_music.mp3" type="audio/mpeg">
+        <source src="Background Music/Background_music.mp3" type="audio/mpeg">
     </audio>
-    <audio id="goMusic" preload="auto" loop>
-        <source src="Game_over.mp3" type="audio/mpeg">
+    <audio id="goMusic" preload="auto">
+        <source src="Background Music/Game_over.mp3" type="audio/mpeg">
     </audio>
+    <audio id="dogBarking" >
+        <source src="Background Music/dog_bark.mp3" type="audio/mpeg">
+    </audio>
+
 
     <title>🐕Shib8bit🐕</title>
   </head>
@@ -57,17 +61,15 @@
         <button id="restart-button">Restart 🎮</button>
       </div>
       <!-- #game-clear is initially hidden using CSS style display: none -->
-      <div id="game-clear"> 
+      <div id="game-win"> 
         <h1>GAME CLEAR</h1>        
-        <img src="Images/Shiba_gameClear.gif" alt="Game Clear" class="gameClear"/>
+        <img src="Images/Shiba_gameClear.gif" alt="You did it!" class="gameClear"/>
         <br />
         <p>YAY! The shiba made it home!</p>
         <br />
         <button id="restart-button">Play again 🎮</button>
       </div>
     </main>
-    <audio id="dogBarking" src="dog_bark.mp3"></audio>
-    <script type="text/javascript" src="js/bird.js"></script>
     <script type="text/javascript" src="js/treat.js"></script>
     <script type="text/javascript" src="js/obstacle.js"></script>
     <script type="text/javascript" src="js/player.js"></script>

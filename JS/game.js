@@ -1,9 +1,10 @@
 class Game {
     constructor() {
       this.startScreen = document.getElementById('game-intro')
+      this.gameContainer = document.getElementById ('game-container')
       this.gameScreen = document.getElementById('game-screen')
       this.gameEndScreen = document.getElementById('game-end')
-      //this.gameClearScreen = document.getElementById('game-clear')//<--to check game clear
+      this.gameWinScreen = document.getElementById('game-win')//game win
       this.height = 300
       this.width = 800
       this.player = new Player(this.gameScreen, 1, 260, 94, 102)
@@ -13,17 +14,18 @@ class Game {
       this.score = 0
       this.lives = 3
       this.gameOver = false
-      //this.gameClear = false //<--to check game clear
-      this.audioDog = 
-      this.soundEffectButton = 
+      this.gameWin = false //game win
       this.gameOverMusicPlayed = false;
       this.gameMusic = document.getElementById ('bgMusic');
       this.gameMusicStopped = false;
+      //this.audioDog = 
+      //this.soundEffectButton = 
     }
     start() {
       this.startScreen.style.display = 'none'
+      this.gameContainer.style.display = 'flex'
       this.gameEndScreen.style.display = 'none'
-      //this.gameClearScreen.style.display = 'none' //<--to check game clear
+      this.gameWinScreen.style.display = 'none' //game win
       this.gameScreen.style.display = 'block'
       this.gameMusic.play()
   
@@ -61,36 +63,53 @@ class Game {
         )
       }
 
-
       document.getElementById('score').innerText = this.score
       document.getElementById('lives').innerText = this.lives
   
       if (this.lives < 1) {
         this.gameOver = true
       }
+
+      else if (this.score >=3){
+        this.gameWin = true
+      }
   
       if (this.gameOver) {
         this.gameScreen.style.display = 'none'
+        this.gameContainer.style.display = 'none'
         this.gameEndScreen.style.display = 'block'
-        //this.gameClearScreen.style.display = 'none'//<--to check game clear
+        this.gameWinScreen.style.display = 'none'//<--to check game win
         const gameOverMusic = document.getElementById('goMusic');
         this.gameMusic.pause();
         console.log(gameOverMusic)
         gameOverMusic.play();
 
-      } else {
+      } 
+      
+      else if (this.gameWin) {
+        this.gameScreen.style.display = 'none'
+        this.gameContainer.style.display = 'none'
+        this.gameEndScreen.style.display = 'none'
+        this.gameWinScreen.style.display = 'block'//<--to check game win
+        this.gameMusic.pause();
+        console.log(gameOverMusic)
+        gameOverMusic.pause();
+      }
+      
+      else {
         this.animateId = requestAnimationFrame(() => this.gameLoop())
       }
 
-      /*if (this.score >= 5) {
-        this.gameClear = true
+      /*if (this.score >= 3) {
+        this.gameWin = true
       }
   
-      if (this.gameClear) {
+      if (this.gameWin) {
         this.gameScreen.style.display = 'none'
+        this.gameContainer.style.display = 'none'
         this.gameEndScreen.style.display = 'none'
-        this.gameClearScreen.style.display = 'block'
-        this.gameMusic.pause()
+        this.gameWinScreen.style.display = 'block'
+        //this.gameMusic.pause()
 
       } else {
         this.animateId = requestAnimationFrame(() => this.gameLoop())
