@@ -8,6 +8,13 @@ window.addEventListener('load', () => {
       console.log('start game')
       game = new Game()
       game.start()
+      const gameMusic = document.getElementById('bgMusic')
+      gameMusic.play()
+      
+      game.onGameOver = () => {
+        gameMusic.onpause();
+        gameOverMusic.play();
+      }
     }
   
     startButton.addEventListener('click', function () {

@@ -16,7 +16,9 @@ class Game {
       //this.gameClear = false //<--to check game clear
       this.audioDog = 
       this.soundEffectButton = 
-      this.gameMusic = new Audio('bgMusic')
+      this.gameOverMusicPlayed = false;
+      this.gameMusic = document.getElementById ('bgMusic');
+      this.gameMusicStopped = false;
     }
     start() {
       this.startScreen.style.display = 'none'
@@ -71,7 +73,10 @@ class Game {
         this.gameScreen.style.display = 'none'
         this.gameEndScreen.style.display = 'block'
         //this.gameClearScreen.style.display = 'none'//<--to check game clear
-        this.gameMusic.pause()
+        const gameOverMusic = document.getElementById('goMusic');
+        this.gameMusic.pause();
+        console.log(gameOverMusic)
+        gameOverMusic.play();
 
       } else {
         this.animateId = requestAnimationFrame(() => this.gameLoop())
