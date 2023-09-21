@@ -93,7 +93,7 @@ class Game {
         this.gameWinScreen.style.display = 'block'//<--to check game win
         const gameWinMusic = document.getElementById('gwMusic');
         this.gameMusic.pause();
-        gameOverMusic.pause();
+        this.gameOverMusic.pause();
         console.log(gameWinMusic);
         gameWinMusic.play();
 
