@@ -7,7 +7,7 @@ class Obstacle {
       this.width = width
       this.element = document.createElement('img')
   
-      this.element.src = 'Images/bonsai1.png'
+      this.element.src = '../Images/bonsai1.png'
   
       this.element.style.position = 'absolute'
       this.element.style.left = `${this.left}px`
