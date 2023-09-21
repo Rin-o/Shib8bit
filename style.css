@@ -36,6 +36,15 @@ body {
       background-color: #f4d85a;
   }
   
+#spaceButton {
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    border-radius: 20%;
+    padding: 5px;
+
+}
+
   #box { 
     align-content: center;
     text-align: center;
@@ -85,12 +94,13 @@ body {
   
   #game-container {
     display: flex;
-    width: 100vw;
     padding: 20px 0px;
     justify-content: center;
     font-family: 'VT323', monospace;  
     color: black;
     background-color: #f4d85a;
+    height:100vh;
+    width: 100vw;
   }
   
   #game-screen {
@@ -98,7 +108,9 @@ body {
     align-content: center;
     padding: 20px 0px;
     overflow: hidden;
-    position: relative;
+    /*position: relative;*/
+    position: fixed; /* or absolute */
+    top: 25%;
     height: 300px;
     width: 800px;
     background-image: url(Images/MergedImages_Background.png);
@@ -155,9 +167,12 @@ body {
   
   #game-end, #game-win {
     display: none;
-      font-size: 18px;
+    margin: 0;
+      font-size: 25px;
       font-family: 'VT323', monospace;  
       color: #444444;
       background-color: #f4d85a;
+      height:100vh;
+      width: 100vw;
   }
   

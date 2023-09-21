@@ -5,6 +5,7 @@ class Game {
       this.gameScreen = document.getElementById('game-screen')
       this.gameEndScreen = document.getElementById('game-end')
       this.gameWinScreen = document.getElementById('game-win')//game win
+      //this.gameWinScreen = new Audio('game-win')
       this.height = 300
       this.width = 800
       this.player = new Player(this.gameScreen, 1, 260, 94, 102)
@@ -93,10 +94,9 @@ class Game {
         this.gameWinScreen.style.display = 'block'//<--to check game win
         const gameWinMusic = document.getElementById('gwMusic');
         this.gameMusic.pause();
-        this.gameOverMusic.pause();
+        //this.gameOverMusic.pause();
         console.log(gameWinMusic);
-        gameWinMusic.play();
-
+        this.gameWinMusic.play();
       }
       
       else {

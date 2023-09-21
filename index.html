@@ -14,14 +14,12 @@
     <audio id="goMusic" preload="auto">
         <source src="Background Music/Game_over.mp3" type="audio/mpeg">
     </audio>
-    <audio id="gwMusic" preload="auto">
+    <!--<audio id="gwMusic" preload="auto">
         <source src="Background Music/Game_win_music.mp3" type="audio/mpeg">
     </audio>
     <audio id="dogBarking" >
         <source src="Background Music/dog_bark.mp3" type="audio/mpeg">
-    </audio>
-
-
+    </audio>-->
     <title>Shib8bit</title>
   </head>
   <body>
@@ -36,7 +34,7 @@
               Game over if it touches the obstacles, so watch out (except for treats!)🤭
               <br />
               <br />
-              Press "Space"🚀 to jump! 
+              Press <span id="spaceButton">Space</span> to jump! 
               <br />
               <br />
               <button id="start-button">Let's get started 🎮</button>
@@ -50,6 +48,7 @@
           <p>Shiba Lives: <span id="lives">3</span></p>
         </div>
         <!-- #game-screen is initially hidden using CSS style display: none -->
+        
         <div id="game-screen">
         </div>
       </div>
@@ -70,6 +69,7 @@
         <br />
         <p>YAY! The shiba made it home!</p>
         <br />
+        <embed src="Background Music/Game_win_music.mp3" loop="false" hidden="true" autostart="true">
         <!--<button id="restart-button">Play again 🎮</button>-->
       </div>
     </main>
