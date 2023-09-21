@@ -18,7 +18,7 @@
   
       this.gameScreen.appendChild(this.element)
     }
-  
+    
     move() {
       this.updatePosition()
       this.element.style.left = `${this.left}px`
