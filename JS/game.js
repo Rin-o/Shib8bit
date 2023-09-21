@@ -18,6 +18,8 @@ class Game {
       this.gameOverMusicPlayed = false;
       this.gameMusic = document.getElementById ('bgMusic');
       this.gameMusicStopped = false;
+      this.gameWinMusicPlayed = false;
+
       //this.audioDog = 
       //this.soundEffectButton = 
     }
@@ -41,7 +43,6 @@ class Game {
         this.obstacles.push(
           new Obstacle(
             this.gameScreen,
-            //Math.random() * (this.gameScreen.clientWidth - 40 - 100) + 50,
             750,
             250,
             70,
@@ -54,7 +55,6 @@ class Game {
         this.treats.push(
           new Treat(
             this.gameScreen,
-            //Math.random() * (this.gameScreen.clientWidth - 40 - 100) + 50,
             750,
             260,
             46,
@@ -91,30 +91,17 @@ class Game {
         this.gameContainer.style.display = 'none'
         this.gameEndScreen.style.display = 'none'
         this.gameWinScreen.style.display = 'block'//<--to check game win
+        const gameWinMusic = document.getElementById('gwMusic');
         this.gameMusic.pause();
-        console.log(gameOverMusic)
         gameOverMusic.pause();
+        console.log(gameWinMusic);
+        gameWinMusic.play();
+
       }
       
       else {
         this.animateId = requestAnimationFrame(() => this.gameLoop())
       }
-
-      /*if (this.score >= 3) {
-        this.gameWin = true
-      }
-  
-      if (this.gameWin) {
-        this.gameScreen.style.display = 'none'
-        this.gameContainer.style.display = 'none'
-        this.gameEndScreen.style.display = 'none'
-        this.gameWinScreen.style.display = 'block'
-        //this.gameMusic.pause()
-
-      } else {
-        this.animateId = requestAnimationFrame(() => this.gameLoop())
-      }*/
-
     }
 
     update() {

@@ -90,6 +90,7 @@ body {
     justify-content: center;
     font-family: 'VT323', monospace;  
     color: black;
+    background-color: #f4d85a;
   }
   
   #game-screen {
@@ -103,6 +104,7 @@ body {
     background-image: url(Images/MergedImages_Background.png);
     background-size: cover;
     animation: slideright 30s linear infinite;
+    background-color: #f4d85a;
   }
   
   @keyframes slideright {
@@ -156,5 +158,6 @@ body {
       font-size: 18px;
       font-family: 'VT323', monospace;  
       color: #444444;
+      background-color: #f4d85a;
   }
   

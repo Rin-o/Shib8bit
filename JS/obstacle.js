@@ -24,6 +24,6 @@ class Obstacle {
     }
   
     updatePosition() {
-      this.left -= 5
+      this.left -= 8
     }
   }
