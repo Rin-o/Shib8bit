@@ -9,19 +9,17 @@ The main character here is a shiba-inu, who’s gotten lost in the middle of the
 
 ## MVP
 _MVP definition here, list of minimum features_
-- Game intro page to start the game
+- Game intro page with instructions and start button to start the game
 - Looping background with landscape visuals creating an illusion of the dog running around the city
 - Looping obstacles/collision to lose lives leading to game over if hit by them 3 times max.
 - Looping treats to gain scores to win
-- Jumping mechanism to avoid the obstacles 
+- Jumping to avoid the obstacles - done with the space button
 - Linking to game over page once hit 3 times by the obstacles, offering an option to restart the game 
-- Link to winning page once collecting 10 biscuits(backlog)
-- Add background music for the game screen & game over screen (backlog)
+- Link to winning page once collecting 10 biscuits
+- Add background music for the game screen & game over screen 
 
 ## Backlog
 _List of features you might implement after the MVP_
-- ~~Link to winning page once collecting 10 biscuits ~~
-- ~~Add background music for the game screen & game over screen~~
 - Add more obstacles 
 - Create 3 levels of difficulties (level 1 being easiest, slower and less obstacles)
 - Add a mute option for those who do not wish to listen to the background music while playing it
@@ -32,30 +30,112 @@ _List of features you might implement after the MVP_
 
 
 ## Data structure
-_List of classes and methods_
-Class: 
-- Game, 
-- Player, 
-- Obstacles, 
-- Treats
-Methods: 
-- constructor 
-- “This”
-- Start()
-- Gameloop()
-- Update ()
-- If statement
-- Move ()
-- UpdatePosition ()
-- Jump()
-- applyGravity ()
-- didCollide()
+### scripy.js
+- window.addEventListener('load')
+- startGame()
+- startButton.addEventListener('click')
+- restartButton.addEventListener('click')
+- document.addEventListener('keydown')
+- setTimeout()
 
+### game.js
+- Class Game
+- constructor()
+     - this.startScreen 
+     - this.gameContainer 
+     - this.gameScreen 
+     - this.gameEndScreen
+     - this.gameWinScreen 
+     - this.height
+     - this.width
+     - this.player
+     - this.obstacles 
+     - this.treats
+     - this.animateId
+     - this.score 
+     - this.lives 
+     - this.gameOver      
+     - this.gameWin
+     - this.gameOverMusicPlayed 
+     - this.gameMusic
+     - this.gameMusicStopped
+     - this.gameWinMusicPlayed
+- start()
+- gameLoop()
+- update()
+
+### player.js
+- class Player 
+- constructor()
+     - this.gameScreen 
+     - this.left 
+     - this.top 
+     - this.height 
+     - this.width
+     - this.directionX 
+     - this.directionY
+     - this.yVelocity
+     - this.jumping 
+     - this.jumpHeight 
+     - this.gravity       
+     - this.element
+     - this.element.src 
+     - this.element.style.position
+     - this.element.style.left
+     - this.element.style.top
+     - this.element.style.height
+     - this.element.style.width
+     - this.gameScreen.appendChild(this.element)
+- jump()
+- applyGravity()
+- move() 
+- updatePosition()
+- didCollide(obstacle)
+
+### obstacle.js
+- class Obstacle 
+    constructor()
+    -  this.gameScreen 
+    - this.left
+    - this.top 
+    -  this.height 
+    -  this.width 
+    -  this.element 
+    -  this.element.src
+    -  this.element.style.position 
+    -  this.element.style.left
+    -  this.element.style.top 
+    -  this.element.style.height
+    -  this.element.style.width 
+    -  this.gameScreen.appendChild(this.element)
+- move()
+- updatePosition()
+
+### treat.js
+- class Treat
+- constructor() 
+     - this.gameScreen
+     - this.left
+     - this.top
+     - this.height
+     - this.width
+     - this.element
+     - this.element.src
+     - this.element.style.position
+     - this.element.style.left
+     - this.element.style.top 
+     - this.element.style.height
+     - this.element.style.width
+     - this.gameScreen.appendChild(this.element)
+- move()
+- updatePosition()
 
 
 ## States y States Transitions
-_List of states (views) of your game_
-
+- Start-intro screen
+- Game screen
+- Game-over/Losing screen
+- Winning screen
 
 ## Task
 _List of tasks in order of priority_
